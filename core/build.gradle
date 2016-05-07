@@ -1,10 +1,22 @@
 apply plugin: "java"
+apply plugin: "jacoco"
 
 sourceCompatibility = 1.6
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 sourceSets.main.java.srcDirs = [ "src/" ]
+sourceSets.test.java.srcDirs = [ "test/" ]
 
+dependencies {
+    testCompile "junit:junit:4.12"
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
 
 eclipse.project {
     name = appName + "-core"

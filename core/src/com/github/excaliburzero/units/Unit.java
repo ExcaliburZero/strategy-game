@@ -1,5 +1,7 @@
 package com.github.excaliburzero.units;
 
+import com.github.excaliburzero.weapons.Weapon;
+
 /**
  * The <code>Unit</code> class is used to represent a single battle unit.
  *
@@ -19,7 +21,9 @@ public abstract class Unit {
     private int experience;
     private int move;
 
-    public Unit(int experience, String name, int maxHealth, int currentHealth, int strength, int defense, int magic, int magicDefense, int speed, int level, int move) {
+    private Weapon weapon;
+
+    public Unit(int experience, String name, int maxHealth, int currentHealth, int strength, int defense, int magic, int magicDefense, int speed, int level, int move, Weapon weapon) {
         this.experience = experience;
         this.name = name;
         this.maxHealth = maxHealth;
@@ -31,6 +35,7 @@ public abstract class Unit {
         this.speed = speed;
         this.level = level;
         this.move = move;
+        this.weapon = weapon;
     }
 
     /**
@@ -102,6 +107,10 @@ public abstract class Unit {
         return level;
     }
 
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
     public void setMove(int move) {
         this.move = move;
     }
@@ -136,5 +145,9 @@ public abstract class Unit {
 
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
 }
